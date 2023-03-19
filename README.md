@@ -40,5 +40,6 @@
 
 ###### 테스트용
 
-- npm install --dev @smui/button
+- npm i -D @smui/button
 - npm i -D @smui/tab @smui/tab-bar
+- npm i -D @smui/card
