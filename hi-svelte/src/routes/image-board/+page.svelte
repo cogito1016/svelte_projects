@@ -10,4 +10,4 @@
 
 <script>
 	import Nav from '../nav.svelte';
-</script>  
+</script>

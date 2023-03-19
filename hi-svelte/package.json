@@ -10,6 +10,7 @@
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@smui/button": "^7.0.0-beta.0",
+    "@smui/card": "^7.0.0-beta.0",
     "@smui/tab": "^7.0.0-beta.0",
     "@smui/tab-bar": "^7.0.0-beta.0",
     "rollup": "^2.3.4",
