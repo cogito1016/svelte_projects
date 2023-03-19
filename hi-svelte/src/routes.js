@@ -1,12 +1,11 @@
-import Home from "./routes/Home.svelte";
-import NotFound from "./routes/NotFound.svelte";
-import Info from "./routes/Info.svelte";
-import ImageBoard from "./routes/Image-Board.svelte";
+import Home from "./routes/+page.svelte";
+import Info from "./routes/info/+page.svelte";
+import ImageBoard from "./routes/image-board/+page.svelte";
 
 export default {
   "/": Home,
   "/info": Info,
   "/image-board": ImageBoard,
   // The catch-all route must always be last
-  "*": NotFound,
+  //   "*": NotFound,
 };
