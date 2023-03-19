@@ -1,3 +1,4 @@
+<Nav/>
 <div>
 	<h1>Welcome Cat Page!</h1>
 	<Button>Button-Test</Button>
@@ -5,4 +6,5 @@
 
 <script>
 	import Button from '@smui/button';
-</script> 
+	import Nav from './nav.svelte';
+</script>  
