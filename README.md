@@ -8,8 +8,8 @@
 
 #### 기본실행
 
-- npm create svelte@latest hi-svelte
-- cd hi-svelte
+- npm create svelte@latest basic-svelte
+- cd basic-svelte
 - npm install
 - npm run dev
 

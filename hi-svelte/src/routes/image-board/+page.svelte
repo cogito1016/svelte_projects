@@ -6,7 +6,7 @@
     <div class="card-display">
         <h3>고양이 제목</h3>
         <img alt="No-Imges" width="300px" height="300px" src="./images/cat.jpeg"/>
-        <h6>고양이 내용</h6>
+        <h6>고양이 내용ㅎㅎ</h6>
     </div>
 </a>
 <script>
