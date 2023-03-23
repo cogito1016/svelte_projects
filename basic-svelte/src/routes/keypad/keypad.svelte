@@ -1,7 +1,8 @@
 <script lang="ts">
-    $: result ="";
+    export let result ="";
     const keyNums = [1,2,3,4,5,6,7,8,9];
     const changeResult = (str: string) => () => result+=str;
+    $: console.log(`${result}`) 
 </script>
 
 <div id="keypadContainer">
