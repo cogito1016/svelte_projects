@@ -1,14 +1,13 @@
+<script lang="ts">
+    $: result ="";
+    const keyNums = [1,2,3,4,5,6,7,8,9];
+    const changeResult = (str: string) => () => result+=str;
+</script>
 
 <div id="keypadContainer">
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
+    {#each keyNums as key }
+        <button on:click={changeResult(`${key}`)}>{key}</button>
+    {/each}
 </div>
 
 <style>
