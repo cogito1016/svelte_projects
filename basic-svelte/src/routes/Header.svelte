@@ -28,7 +28,7 @@
 			<li aria-current={$page.url.pathname === '/keypad' ? 'page' : undefined}>
 				<a href="/keypad">Key-Pad</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/redo' ? 'page' : undefined}>
+			<li aria-current={$page.url.pathname === '/undo' ? 'page' : undefined}>
 				<a href="/undo">Undo</a>
 			</li>
 		</ul>
