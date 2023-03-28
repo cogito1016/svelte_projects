@@ -1,6 +1,6 @@
 # svelte_projects
 
-옹😀
+Svelte😀
 
 ## 초기 세팅
 
@@ -43,3 +43,35 @@
 - npm i -D @smui/button
 - npm i -D @smui/tab @smui/tab-bar
 - npm i -D @smui/card
+
+## 개념
+
+### 스토어
+
+- state management tool in svelete
+
+###### writable();
+
+- create writable store
+
+```typescript
+import { writable } from "svelte/store";
+export const Repository = writable(1);
+export default Repository;
+```
+
+- update store value
+
+```typescript
+import { update } from "svelte/store";
+import Repository from "./repository";
+Repository.update((value) => value + 1);
+```
+
+- get store value
+
+```typescript
+import { get } from "svelte/store";
+import Repository from "./repository";
+const numListInStore = get(Repository);
+```
