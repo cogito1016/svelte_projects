@@ -6,7 +6,7 @@
     /**
      * 구독취소를 안해주면 메모리누수가 발생된다.
     */
-    const unSubscribe = count.subscribe((value)=>countValue=value);
+    // const unSubscribe = count.subscribe((value)=>countValue=value);
 
     function add(){
         count.update(n=>n+1)
@@ -20,12 +20,12 @@
         count.set(0);
     }
 
-    onDestroy(unSubscribe);
+    // onDestroy(unSubscribe);
 </script>
 
 
 <div>
-    this count is {countValue};
+    this count is {$count};
     <button on:click={add}>증가</button>
     <button on:click={sub}>감소</button>
     <button on:click={reset}>초기화</button>
