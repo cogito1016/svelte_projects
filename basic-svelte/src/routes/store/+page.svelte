@@ -1,8 +1,12 @@
 <script lang="ts">
+    import {onDestroy} from 'svelte'
     import { count } from "./store";
     let countValue : number;
 
-    count.subscribe((value)=>countValue=value);
+    /**
+     * 구독취소를 안해주면 메모리누수가 발생된다.
+    */
+    const unSubscribe = count.subscribe((value)=>countValue=value);
 
     function add(){
         count.update(n=>n+1)
@@ -15,6 +19,8 @@
     function reset(){
         count.set(0);
     }
+
+    onDestroy(unSubscribe);
 </script>
 
 
