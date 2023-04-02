@@ -1,3 +1,13 @@
+<script>
+	import { Milk } from "./additional-menu/Milk";
+	import { Latte } from "./menu/Latte";
+
+    let latte = new Latte();
+    console.log(`${latte.description} ${latte.cost()}`);
+    latte = new Milk(latte);
+    console.log(`${latte.description} ${latte.cost()}`);
+</script>
+
 <div id="coffeeShopContainer">
     <h1>제이든 커피 샵</h1>
     <h2>메인메뉴(택1)</h2> 
