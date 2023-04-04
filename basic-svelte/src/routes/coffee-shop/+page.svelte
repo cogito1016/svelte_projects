@@ -7,23 +7,34 @@
 	import type { Menu } from "./menu/menu";
 	import { Moca } from "./menu/moca";
 
+    let selectedMainMenu:string;
+
     let mainMenu:Menu;
     let additionalMenus:string[] = [];
 
-    const latte = new Latte();
-    const moca = new Moca();
-    const espresso = new Espresso();
-
-    $: additionalMenus.forEach((additionalMenu)=>{
-        if(additionalMenu==="milk"){
-            mainMenu = new Milk(mainMenu);
-        }else if(additionalMenu==="syrup"){
-            mainMenu = new Syrup(mainMenu);
-        }else if(additionalMenu==="whip"){
-            mainMenu = new Whip(mainMenu);
+    const changeMainMenu = () => {
+        if(selectedMainMenu==="latte"){
+            mainMenu = new Latte();
+        }else if(selectedMainMenu==="moca"){
+            mainMenu = new Moca();
+        }else if(selectedMainMenu==="espresso"){
+            mainMenu = new Espresso();
         }
+    }
+
+    const changeAdditionalMenu = ()=>{
+        changeMainMenu();
+        additionalMenus.forEach((additionalMenu)=>{
+            if(additionalMenu==="milk"){
+                mainMenu = new Milk(mainMenu);
+            }else if(additionalMenu==="syrup"){
+                mainMenu = new Syrup(mainMenu);
+            }else if(additionalMenu==="whip"){
+                mainMenu = new Whip(mainMenu);
+            }
+        });
         console.log(`${mainMenu.description} = ${mainMenu.cost()}`);
-    });
+    }
     
 </script>
 
@@ -32,22 +43,22 @@
     <h2>메인메뉴(택1)</h2> 
 
     <div id='mainMenuContainer'>
-        <input type="radio" bind:group={mainMenu} value={latte}>
+        <input type="radio" bind:group={selectedMainMenu} on:change={changeMainMenu} value="latte">
         <label for="latte">라떼</label>
-        <input type="radio" bind:group={mainMenu} value={moca}>
+        <input type="radio" bind:group={selectedMainMenu} on:change={changeMainMenu} value="moca">
         <label for="mocha">모카</label>
-        <input type="radio" bind:group={mainMenu} value={espresso}>
+        <input type="radio" bind:group={selectedMainMenu} on:change={changeMainMenu} value="espresso">
         <label for="espresso">에스프레소</label>
     </div>
 
     <br>
     <h2>추가메뉴(선택)</h2>
     <div id='additionalMenuContainer'>
-        <input type="checkbox" bind:group={additionalMenus} value="milk">
+        <input type="checkbox" bind:group={additionalMenus} on:change={changeAdditionalMenu} value="milk">
         <label for="cream">우유</label>
-        <input type="checkbox" bind:group={additionalMenus} value="syrup">
+        <input type="checkbox" bind:group={additionalMenus} on:change={changeAdditionalMenu} value="syrup">
         <label for="syrup">시럽</label>
-        <input type="checkbox" bind:group={additionalMenus} value="whip">
+        <input type="checkbox" bind:group={additionalMenus} on:change={changeAdditionalMenu} value="whip">
         <label for="whippedCream">휘핑크림</label>
     </div>
 
