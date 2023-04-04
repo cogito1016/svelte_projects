@@ -1,11 +1,30 @@
-<script>
+<script lang="ts">
 	import { Milk } from "./additional-menu/Milk";
+	import { Syrup } from "./additional-menu/Syrup";
+	import { Whip } from "./additional-menu/Whip";
+	import { Espresso } from "./menu/Espresso";
 	import { Latte } from "./menu/Latte";
+	import type { Menu } from "./menu/menu";
+	import { Moca } from "./menu/moca";
 
-    let latte = new Latte();
-    console.log(`${latte.description} ${latte.cost()}`);
-    latte = new Milk(latte);
-    console.log(`${latte.description} ${latte.cost()}`);
+    let mainMenu:Menu;
+    let additionalMenus:string[] = [];
+
+    const latte = new Latte();
+    const moca = new Moca();
+    const espresso = new Espresso();
+
+    $: additionalMenus.forEach((additionalMenu)=>{
+        if(additionalMenu==="milk"){
+            mainMenu = new Milk(mainMenu);
+        }else if(additionalMenu==="syrup"){
+            mainMenu = new Syrup(mainMenu);
+        }else if(additionalMenu==="whip"){
+            mainMenu = new Whip(mainMenu);
+        }
+        console.log(`${mainMenu.description} = ${mainMenu.cost()}`);
+    });
+    
 </script>
 
 <div id="coffeeShopContainer">
@@ -13,22 +32,22 @@
     <h2>메인메뉴(택1)</h2> 
 
     <div id='mainMenuContainer'>
-        <input type="radio" name="mainMenu" id="latte" value="라떼">
+        <input type="radio" bind:group={mainMenu} value={latte}>
         <label for="latte">라떼</label>
-        <input type="radio" name="mainMenu" id="mocha" value="모카">
+        <input type="radio" bind:group={mainMenu} value={moca}>
         <label for="mocha">모카</label>
-        <input type="radio" name="mainMenu" id="espresso" value="에스프레소">
+        <input type="radio" bind:group={mainMenu} value={espresso}>
         <label for="espresso">에스프레소</label>
     </div>
 
     <br>
     <h2>추가메뉴(선택)</h2>
     <div id='additionalMenuContainer'>
-        <input type="checkbox" name="additionalMenu" id="cream" value="크림">
-        <label for="cream">크림</label>
-        <input type="checkbox" name="additionalMenu" id="syrup" value="시럽">
+        <input type="checkbox" bind:group={additionalMenus} value="milk">
+        <label for="cream">우유</label>
+        <input type="checkbox" bind:group={additionalMenus} value="syrup">
         <label for="syrup">시럽</label>
-        <input type="checkbox" name="additionalMenu" id="whippedCream" value="휘핑크림">
+        <input type="checkbox" bind:group={additionalMenus} value="whip">
         <label for="whippedCream">휘핑크림</label>
     </div>
 
