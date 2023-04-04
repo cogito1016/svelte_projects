@@ -12,24 +12,14 @@
 
     let mainMenu:Menu;
 
-    let ingredients:string = "";
-    let totalCost:number = 0;
-
     const changeMainMenuView = () => {
         selectedAdditionalMenus = [];
         setMainMenu();
-        changeResultView(mainMenu);
     }
 
     const changeAdditionalMenuView = ()=>{
         setMainMenu();
         setAdditionalMenus();
-        changeResultView(mainMenu);
-    }
-
-    const changeResultView = (mainMenu:Menu) => {
-        ingredients = mainMenu.description;
-        totalCost = mainMenu.cost();
     }
 
     const setMainMenu = () => {
@@ -86,13 +76,13 @@
     <hr>
     <h2>your coffee ingredients!</h2>
     <div id="finalPriceContainer">
-        <p>{ingredients}</p>
+        <p>{mainMenu.description}</p>
     </div>
 
     <hr>
     <h2>최종 가격</h2>
     <div id="finalPriceContainer">
-        <p>{totalCost}</p>
+        <p>{mainMenu.cost()}</p>
     </div>
 </div>
 
