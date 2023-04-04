@@ -12,6 +12,9 @@
 
     let mainMenu:Menu;
 
+    let ingredients:string = "";
+    let totalCost:number = 0;
+
     const changeMainMenu = () => {
         if(selectedMainMenu==="latte"){
             mainMenu = new Latte();
@@ -20,6 +23,7 @@
         }else if(selectedMainMenu==="espresso"){
             mainMenu = new Espresso();
         }
+        changeResult(mainMenu);
     }
 
     const changeAdditionalMenu = ()=>{
@@ -33,7 +37,12 @@
                 mainMenu = new Whip(mainMenu);
             }
         });
-        console.log(`${mainMenu.description} = ${mainMenu.cost()}`);
+        changeResult(mainMenu);
+    }
+
+    const changeResult = (mainMenu:Menu) => {
+        ingredients = mainMenu.description;
+        totalCost = mainMenu.cost();
     }
     
 </script>
@@ -63,16 +72,22 @@
     </div>
 
     <hr>
+    <h2>your coffee ingredients!</h2>
+    <div id="finalPriceContainer">
+        <p>{ingredients}</p>
+    </div>
+
+    <hr>
     <h2>최종 가격</h2>
     <div id="finalPriceContainer">
-        <p>0</p>
+        <p>{totalCost}</p>
     </div>
 </div>
 
 <style>
     #coffeeShopContainer{
         width: 500px;
-        height: 500px;
+        height: 600px;
         border: 1px solid black;
         margin: 0 auto;
         padding: 10px;
