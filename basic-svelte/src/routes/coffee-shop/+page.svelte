@@ -61,7 +61,19 @@
 
     <br>
     {#if mainMenu===undefined}
-    <h2>메인메뉴를 먼저 선택해주세요</h2>
+    <h2>메인메뉴를 선택해주세요</h2>
+
+    <hr>
+    <h2>your coffee ingredients!</h2>
+    <div id="finalPriceContainer">
+        <p></p>
+    </div>
+
+    <hr>
+    <h2>최종 가격</h2>
+    <div id="finalPriceContainer">
+        <p>0</p>
+    </div>
     {:else}
     <h2>추가메뉴(선택)</h2>
     <div id='additionalMenuContainer'>
@@ -72,7 +84,7 @@
         <input type="checkbox" bind:group={selectedAdditionalMenus} on:change={changeAdditionalMenuView} value="whip">
         <label for="whippedCream">휘핑크림</label>
     </div>
-    {/if}
+
     <hr>
     <h2>your coffee ingredients!</h2>
     <div id="finalPriceContainer">
@@ -84,6 +96,7 @@
     <div id="finalPriceContainer">
         <p>{mainMenu.cost()}</p>
     </div>
+    {/if}
 </div>
 
 <style>
