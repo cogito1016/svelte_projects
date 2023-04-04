@@ -8,9 +8,9 @@
 	import { Moca } from "./menu/moca";
 
     let selectedMainMenu:string;
+    let selectedAdditionalMenus:string[] = [];
 
     let mainMenu:Menu;
-    let additionalMenus:string[] = [];
 
     const changeMainMenu = () => {
         if(selectedMainMenu==="latte"){
@@ -24,7 +24,7 @@
 
     const changeAdditionalMenu = ()=>{
         changeMainMenu();
-        additionalMenus.forEach((additionalMenu)=>{
+        selectedAdditionalMenus.forEach((additionalMenu)=>{
             if(additionalMenu==="milk"){
                 mainMenu = new Milk(mainMenu);
             }else if(additionalMenu==="syrup"){
@@ -54,11 +54,11 @@
     <br>
     <h2>추가메뉴(선택)</h2>
     <div id='additionalMenuContainer'>
-        <input type="checkbox" bind:group={additionalMenus} on:change={changeAdditionalMenu} value="milk">
+        <input type="checkbox" bind:group={selectedAdditionalMenus} on:change={changeAdditionalMenu} value="milk">
         <label for="cream">우유</label>
-        <input type="checkbox" bind:group={additionalMenus} on:change={changeAdditionalMenu} value="syrup">
+        <input type="checkbox" bind:group={selectedAdditionalMenus} on:change={changeAdditionalMenu} value="syrup">
         <label for="syrup">시럽</label>
-        <input type="checkbox" bind:group={additionalMenus} on:change={changeAdditionalMenu} value="whip">
+        <input type="checkbox" bind:group={selectedAdditionalMenus} on:change={changeAdditionalMenu} value="whip">
         <label for="whippedCream">휘핑크림</label>
     </div>
 
