@@ -65,7 +65,7 @@
 
     <hr>
     <h2>your coffee ingredients!</h2>
-    <div id="finalPriceContainer">
+    <div id="coffeeIngredientsContainer">
         <p></p>
     </div>
 
@@ -87,7 +87,7 @@
 
     <hr>
     <h2>your coffee ingredients!</h2>
-    <div id="finalPriceContainer">
+    <div id="coffeeIngredientsContainer">
         <p>{mainMenu.description}</p>
     </div>
 
@@ -100,26 +100,93 @@
 </div>
 
 <style>
+    /*
+    * 카카오톡 처럼 CSS 작성
+    */
     #coffeeShopContainer{
-        width: 500px;
-        height: 600px;
-        border: 1px solid black;
-        margin: 0 auto;
-        padding: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+
     #mainMenuContainer{
-        border: 1px solid black;
-        height: 50px;
-        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
+
     #additionalMenuContainer{
-        border: 1px solid black;
-        height: 50px;
-        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
+
+
     #finalPriceContainer{
-        border: 1px solid black;
-        height: 50px;
-        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
+
+    #finalPriceContainer p{
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #finalPriceContainer p::after{
+        content: "원";
+    }
+
+    #finalPriceContainer p::before{
+        content: "최종 가격: ";
+    }
+
+    #coffeeShopContainer h1{
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    #coffeeShopContainer h2{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #coffeeShopContainer hr{
+        width: 100%;
+        border: 1px solid black;
+    }
+
+    #coffeeShopContainer input{
+        width: 20px;
+        height: 20px;
+    }
+
+    #coffeeShopContainer label{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #coffeeShopContainer p{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #coffeeIngredientsContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #coffeeIngredientsContainer p{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #coffeeIngredientsContainer p::before{
+        content: "커피 재료: ";
+    }
+
+
 </style>
